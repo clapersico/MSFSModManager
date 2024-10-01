@@ -11,7 +11,7 @@
         'Controllo se è presente all'interno del registro di sistema la cartella delle mod
         Dim cartellaMod = RegistroSistema.leggiValoreChiave(REG_KEY_DIR_MOD, "mod")
 
-        If cartellaMod Is Nothing Then
+        If cartellaMod Is Nothing Or cartellaMod = "" Then
             cartellaModNonImpostata()
         Else
             Dim addons() As String = IO.Directory.GetDirectories(cartellaMod)
