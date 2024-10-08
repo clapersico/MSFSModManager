@@ -25,6 +25,8 @@ Partial Class Opzioni
         Label1 = New Label()
         cartellaModTxt = New TextBox()
         salvaBt = New Button()
+        Label2 = New Label()
+        cartellaMSFSTxt = New TextBox()
         SuspendLayout()
         ' 
         ' Label1
@@ -48,9 +50,25 @@ Partial Class Opzioni
         salvaBt.Location = New Point(472, 124)
         salvaBt.Name = "salvaBt"
         salvaBt.Size = New Size(75, 23)
-        salvaBt.TabIndex = 2
+        salvaBt.TabIndex = 3
         salvaBt.Text = "Salva"
         salvaBt.UseVisualStyleBackColor = True
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(12, 64)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(104, 15)
+        Label2.TabIndex = 3
+        Label2.Text = "Path cartella MSFS"
+        ' 
+        ' cartellaMSFSTxt
+        ' 
+        cartellaMSFSTxt.Location = New Point(12, 82)
+        cartellaMSFSTxt.Name = "cartellaMSFSTxt"
+        cartellaMSFSTxt.Size = New Size(535, 23)
+        cartellaMSFSTxt.TabIndex = 2
         ' 
         ' Opzioni
         ' 
@@ -58,6 +76,8 @@ Partial Class Opzioni
         AutoScaleMode = AutoScaleMode.Font
         AutoValidate = AutoValidate.EnablePreventFocusChange
         ClientSize = New Size(559, 159)
+        Controls.Add(cartellaMSFSTxt)
+        Controls.Add(Label2)
         Controls.Add(salvaBt)
         Controls.Add(cartellaModTxt)
         Controls.Add(Label1)
@@ -72,4 +92,6 @@ Partial Class Opzioni
     Friend WithEvents Label1 As Label
     Friend WithEvents cartellaModTxt As TextBox
     Friend WithEvents salvaBt As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents cartellaMSFSTxt As TextBox
 End Class

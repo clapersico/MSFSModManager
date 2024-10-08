@@ -8,11 +8,12 @@
     End Sub
 
     Private Sub MSFSModManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Controllo se è presente all'interno del registro di sistema la cartella delle mod
         Dim cartellaMod = RegistroSistema.leggiValoreChiave(REG_KEY_DIR_MOD, "mod")
+        Dim cartellaMSFS = RegistroSistema.leggiValoreChiave(REG_KEY_DIR_MOD, "msfs")
 
+        'Cartella MOD
         If cartellaMod Is Nothing Or cartellaMod = "" Then
-            cartellaModNonImpostata()
+            MsgBox("Cartella mod non impostata", , "MSFS Mod Manager")
         Else
             Dim addons() As String = IO.Directory.GetDirectories(cartellaMod)
 
@@ -23,9 +24,10 @@
                 ModList.Items.Add(nome)
             Next
         End If
-    End Sub
 
-    Private Sub cartellaModNonImpostata()
-        MsgBox("Cartella mod non impostata")
+        'Cartella MSFS
+        If cartellaMSFS Is Nothing Or cartellaMSFS = "" Then
+            MsgBox("Cartella MSFS non impostata", , "MSFS Mod Manager")
+        End If
     End Sub
 End Class
