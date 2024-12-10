@@ -22,23 +22,27 @@ Partial Class MSFSModManager
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        MenuStrip1 = New MenuStrip()
+        navbar = New MenuStrip()
         OpzioniToolStripMenuItem = New ToolStripMenuItem()
         ModList = New ListBox()
         ActiveModList = New ListBox()
         modLb = New Label()
         actModLb = New Label()
-        MenuStrip1.SuspendLayout()
+        attivaModBt = New Button()
+        attivaTutteModBt = New Button()
+        disattivaModBt = New Button()
+        disattivaTutteModBt = New Button()
+        navbar.SuspendLayout()
         SuspendLayout()
         ' 
-        ' MenuStrip1
+        ' navbar
         ' 
-        MenuStrip1.Items.AddRange(New ToolStripItem() {OpzioniToolStripMenuItem})
-        MenuStrip1.Location = New Point(0, 0)
-        MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Size = New Size(932, 24)
-        MenuStrip1.TabIndex = 0
-        MenuStrip1.Text = "MenuStrip1"
+        navbar.Items.AddRange(New ToolStripItem() {OpzioniToolStripMenuItem})
+        navbar.Location = New Point(0, 0)
+        navbar.Name = "navbar"
+        navbar.Size = New Size(932, 24)
+        navbar.TabIndex = 0
+        navbar.Text = "MenuStrip1"
         ' 
         ' OpzioniToolStripMenuItem
         ' 
@@ -82,30 +86,74 @@ Partial Class MSFSModManager
         actModLb.TabIndex = 4
         actModLb.Text = "Elenco MOD Attive"
         ' 
+        ' attivaModBt
+        ' 
+        attivaModBt.Location = New Point(433, 242)
+        attivaModBt.Name = "attivaModBt"
+        attivaModBt.Size = New Size(66, 21)
+        attivaModBt.TabIndex = 5
+        attivaModBt.Text = ">"
+        attivaModBt.UseVisualStyleBackColor = True
+        ' 
+        ' attivaTutteModBt
+        ' 
+        attivaTutteModBt.Location = New Point(433, 215)
+        attivaTutteModBt.Name = "attivaTutteModBt"
+        attivaTutteModBt.Size = New Size(66, 21)
+        attivaTutteModBt.TabIndex = 6
+        attivaTutteModBt.Text = ">>"
+        attivaTutteModBt.UseVisualStyleBackColor = True
+        ' 
+        ' disattivaModBt
+        ' 
+        disattivaModBt.Location = New Point(433, 296)
+        disattivaModBt.Name = "disattivaModBt"
+        disattivaModBt.Size = New Size(66, 21)
+        disattivaModBt.TabIndex = 7
+        disattivaModBt.Text = "<"
+        disattivaModBt.UseVisualStyleBackColor = True
+        ' 
+        ' disattivaTutteModBt
+        ' 
+        disattivaTutteModBt.Location = New Point(433, 323)
+        disattivaTutteModBt.Name = "disattivaTutteModBt"
+        disattivaTutteModBt.Size = New Size(66, 21)
+        disattivaTutteModBt.TabIndex = 8
+        disattivaTutteModBt.Text = "<<"
+        disattivaTutteModBt.UseVisualStyleBackColor = True
+        ' 
         ' MSFSModManager
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(932, 558)
+        Controls.Add(disattivaTutteModBt)
+        Controls.Add(disattivaModBt)
+        Controls.Add(attivaTutteModBt)
+        Controls.Add(attivaModBt)
         Controls.Add(actModLb)
         Controls.Add(modLb)
         Controls.Add(ActiveModList)
         Controls.Add(ModList)
-        Controls.Add(MenuStrip1)
-        MainMenuStrip = MenuStrip1
+        Controls.Add(navbar)
+        MainMenuStrip = navbar
         Name = "MSFSModManager"
         StartPosition = FormStartPosition.CenterScreen
         Text = "MSFSModManager"
-        MenuStrip1.ResumeLayout(False)
-        MenuStrip1.PerformLayout()
+        navbar.ResumeLayout(False)
+        navbar.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents navbar As MenuStrip
     Friend WithEvents OpzioniToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ModList As ListBox
     Friend WithEvents ActiveModList As ListBox
     Friend WithEvents modLb As Label
     Friend WithEvents actModLb As Label
+    Friend WithEvents attivaModBt As Button
+    Friend WithEvents attivaTutteModBt As Button
+    Friend WithEvents disattivaModBt As Button
+    Friend WithEvents disattivaTutteModBt As Button
 End Class
