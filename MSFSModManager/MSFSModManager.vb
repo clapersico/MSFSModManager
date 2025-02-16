@@ -24,7 +24,9 @@ Public Class MSFSModManager
     End Sub
 
     Private Sub attivaModBt_Click(sender As Object, e As EventArgs) Handles attivaModBt.Click
-        MsgBox(ModList.SelectedItem)
+        If ModList.SelectedIndex > -1 Then
+            spostaMod(ModList, ActiveModList, cartellaMod + ModList.SelectedItem, cartellaMSFS + ModList.SelectedItem)
+        End If
     End Sub
 
     Private Sub caricamentoAddon(ByRef control As ListBox, ByVal dir As String)
@@ -44,12 +46,16 @@ Public Class MSFSModManager
 
     Private Sub disattivaModBt_Click(sender As Object, e As EventArgs) Handles disattivaModBt.Click
         If ActiveModList.SelectedIndex > -1 Then
-            My.Computer.FileSystem.MoveDirectory(cartellaMSFS + ActiveModList.SelectedItem, cartellaMod + ActiveModList.SelectedItem)
-            ModList.Items.Add(ActiveModList.SelectedItem)
-            ActiveModList.Items.Remove(ActiveModList.SelectedItem)
-
-            attivaDisattivaBt()
+            spostaMod(ActiveModList, ModList, cartellaMSFS + ActiveModList.SelectedItem, cartellaMod + ActiveModList.SelectedItem)
         End If
+    End Sub
+
+    Private Sub spostaMod(ByRef listaSrc As ListBox, ByRef listaTarget As ListBox, ByVal src As String, ByVal target As String)
+        My.Computer.FileSystem.MoveDirectory(src, target)
+        listaTarget.Items.Add(listaSrc.SelectedItem)
+        listaSrc.Items.Remove(listaSrc.SelectedItem)
+
+        attivaDisattivaBt()
     End Sub
 
     Private Sub attivaDisattivaBt()
