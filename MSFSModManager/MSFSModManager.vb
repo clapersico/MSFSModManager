@@ -27,6 +27,10 @@ Public Class MSFSModManager
         If ModList.SelectedIndex > -1 Then
             spostaMod(ModList, ActiveModList, cartellaMod + ModList.SelectedItem, cartellaMSFS + ModList.SelectedItem)
         End If
+
+        If ModList.Items.Count > 0 Then
+            ModList.SelectedIndex = 0
+        End If
     End Sub
 
     Private Sub caricamentoAddon(ByRef control As ListBox, ByVal dir As String)
@@ -47,6 +51,10 @@ Public Class MSFSModManager
     Private Sub disattivaModBt_Click(sender As Object, e As EventArgs) Handles disattivaModBt.Click
         If ActiveModList.SelectedIndex > -1 Then
             spostaMod(ActiveModList, ModList, cartellaMSFS + ActiveModList.SelectedItem, cartellaMod + ActiveModList.SelectedItem)
+        End If
+
+        If ActiveModList.Items.Count > 0 Then
+            ActiveModList.SelectedIndex = 0
         End If
     End Sub
 
@@ -73,5 +81,19 @@ Public Class MSFSModManager
             disattivaModBt.Enabled = True
             disattivaTutteModBt.Enabled = True
         End If
+    End Sub
+
+    Private Sub attivaTutteModBt_Click(sender As Object, e As EventArgs) Handles attivaTutteModBt.Click
+        For index As Integer = 0 To ModList.Items.Count - 1
+            ModList.SelectedIndex = 0
+            spostaMod(ModList, ActiveModList, cartellaMod + ModList.SelectedItem, cartellaMSFS + ModList.SelectedItem)
+        Next
+    End Sub
+
+    Private Sub disattivaTutteModBt_Click(sender As Object, e As EventArgs) Handles disattivaTutteModBt.Click
+        For index As Integer = 0 To ActiveModList.Items.Count - 1
+            ActiveModList.SelectedIndex = 0
+            spostaMod(ActiveModList, ModList, cartellaMSFS + ActiveModList.SelectedItem, cartellaMod + ActiveModList.SelectedItem)
+        Next
     End Sub
 End Class
